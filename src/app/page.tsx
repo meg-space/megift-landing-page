@@ -3,7 +3,6 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import {
   FaGift,
   FaUsers,
@@ -15,6 +14,7 @@ import {
   FaCheck,
 } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { getAssetPath } from '@/utils/path';
 
 export default function LandingPage() {
   const [email, setEmail] = useState('');
@@ -56,6 +56,7 @@ export default function LandingPage() {
         setSubmitted(false);
       }, 3000);
     } catch (err) {
+      console.error(err);
       setError('Ocorreu um erro. Tente novamente.');
     }
   };
@@ -92,7 +93,7 @@ export default function LandingPage() {
           <div className="flex items-center">
             <div className="relative h-12 w-32">
               <Image
-                src="/logo.png"
+                src={getAssetPath("/logo.png")}
                 alt="Megift Logo"
                 width={128}
                 height={48}
@@ -120,7 +121,7 @@ export default function LandingPage() {
             whileTap={{ scale: 0.95 }}
           >
             <Image
-              src="/icons/icon-48x48.png"
+              src={getAssetPath("/icons/icon-48x48.png")}
               alt=""
               width={24}
               height={24}
@@ -176,7 +177,7 @@ export default function LandingPage() {
             >
               <div className="absolute -top-20 -right-20 w-40 h-40 animate-float">
                 <Image
-                  src="/megift-coin.png"
+                  src={getAssetPath("/megift-coin.png")}
                   alt="Megift Coin"
                   width={160}
                   height={160}
@@ -246,7 +247,7 @@ export default function LandingPage() {
             <div className="md:w-1/2 flex justify-center">
               <div className="relative w-[320px] h-[640px]">
                 <Image
-                  src="/screens/home-mobile.png"
+                  src={getAssetPath("/screens/home-mobile.png")}
                   alt="Megift App Showcase"
                   layout="fill"
                   objectFit="cover"
@@ -376,7 +377,7 @@ export default function LandingPage() {
             <div className="mb-8 md:mb-0">
               <div className="relative h-12 w-32">
                 <Image
-                  src="/logo-rosa.png"
+                  src={getAssetPath("/logo-rosa.png")}
                   alt="Megift Logo"
                   width={128}
                   height={48}
